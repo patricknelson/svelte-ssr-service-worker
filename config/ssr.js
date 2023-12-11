@@ -7,7 +7,7 @@ export default {
 	input: 'src/index.ssr.js',
 	output: {
 		format: 'esm',
-		file: 'build/index.js',
+		file: 'public/bundle.ssr.js',
 		sourcemap: false,
 	},
 	treeshake: {
