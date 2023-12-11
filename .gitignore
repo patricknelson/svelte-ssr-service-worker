@@ -3,6 +3,7 @@ node_modules
 *-lock.*
 *.lock
 *.log
+.idea/
 
 /public/index.html
 /public/bundle*
