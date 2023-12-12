@@ -8,7 +8,8 @@ export const Svelte = require('../svelte.config');
 
 // TODO: Update CDN value :)
 export const Replaces = {
-	'{{CDN}}': isDev ? '' : 'https://cdn.example.com',
+	//'{{CDN}}': isDev ? '' : 'https://cdn.example.com',
+	'{{CDN}}': isDev ? '' : '',
 	'process.env.NODE_ENV': isDev ? 'development' : 'production',
 }
 
