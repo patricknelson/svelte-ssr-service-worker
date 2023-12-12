@@ -2,8 +2,6 @@
 
 > A quick demo for rendering Svelte _Service Worker Side_ (SWSR). Like SSR (server side rendering) but within a [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers)!
 
-[Live Demo](https://cloudflareworkers.com/#9e1f81f41405f8851b39f4643ce12754:https://tutorial.cloudflareworkers.com/)
-
 This is a demo meant to illustrate how to get Svelte SSR in a Service Worker. It is _intentionally_ very minimal. It is
 a fork of [svelte-ssr-worker](https://github.com/lukeed/svelte-ssr-worker) and lightly modified for Service Workers.
 
