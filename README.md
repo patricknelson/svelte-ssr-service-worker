@@ -1,4 +1,4 @@
-# svelte-swsr-worker
+# svelte-ssr-service-worker (SWSR)
 
 > A quick demo for rendering Svelte via _Service Worker Side Rendering_ (SWSR). Like SSR (Server Side Rendering) but within a [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers)!
 
@@ -10,8 +10,8 @@ Svelte and Rollup are a bit out of date in this PoC and new projects shouldn't u
 ## Install
 
 ```sh
-$ git clone https://github.com/patricknelson/svelte-swsr-worker
-$ cd svelte-swsr-worker
+$ git clone https://github.com/patricknelson/svelte-ssr-service-worker
+$ cd svelte-ssr-service-worker
 $ npm install
 ```
 

@@ -1,7 +1,7 @@
 {
   "private": true,
   "version": "0.1.0",
-  "name": "svelte-swsr-worker",
+  "name": "svelte-ssr-service-worker",
   "scripts": {
     "build": "run-s build:**",
     "build:dom": "rollup -c config/dom.js",
