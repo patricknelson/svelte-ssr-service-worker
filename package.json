@@ -5,11 +5,11 @@
   "scripts": {
     "build": "run-s build:**",
     "build:dom": "rollup -c config/dom.js",
-    "build:ssr": "rollup -c config/ssr.js",
+    "build:ssr": "rollup -c config/service-worker.js",
     "start": "sirv public --single --dev --port 8080",
     "watch": "run-p \"start --quiet\" watch:dom",
     "watch:dom": "run-s \"build:dom -w\"",
-    "watch:ssr": "rollup -cw config/ssr.js"
+    "watch:ssr": "rollup -cw config/service-worker.js"
   },
   "engines": {
     "node": ">=10"

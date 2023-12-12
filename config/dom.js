@@ -42,7 +42,7 @@ export default {
 	output: {
 		name: 'app',
 		format: 'iife',
-		file: 'public/bundle.js',
+		file: 'public/build/bundle.js',
 		sourcemap: isDev
 	},
 	plugins: [

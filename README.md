@@ -1,16 +1,17 @@
-# svelte-ssr-worker
+# svelte-swsr-worker
 
-> A quick demo for rendering Svelte server-side (SSR), but within a [Cloudflare Worker](https://workers.cloudflare.com/)!
+> A quick demo for rendering Svelte _Service Worker Side_ (SWSR). Like SSR (server side rendering) but within a [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers)!
 
 [Live Demo](https://cloudflareworkers.com/#9e1f81f41405f8851b39f4643ce12754:https://tutorial.cloudflareworkers.com/)
 
-This is a demo meant to illustrate how to get Svelte SSR in a Cloudflare worker. It is _intentionally_ very minimal – it extends the official [`svelte-template`](https://github.com/sveltejs/template).
+This is a demo meant to illustrate how to get Svelte SSR in a Service Worker. It is _intentionally_ very minimal. It is
+a fork of [svelte-ssr-worker](https://github.com/lukeed/svelte-ssr-worker) and lightly modified for Service Workers.
 
 
 ## Install
 
 ```sh
-$ git clone https://github.com/lukeed/svelte-ssr-worker
+$ git clone https://github.com/patricknelson/svelte-swsr-worker
 $ cd svelte-ssr-worker
 $ npm install
 ```
@@ -38,7 +39,7 @@ All files within the `/public` directory comprise your front-end client applicat
 
 ### `build:ssr`
 
-Builds your Cloudflare Worker code, using the `src/index.ssr.js` entry point.
+Builds your Cloudflare Worker code, using the `src/index.service-worker.js` entry point.
 
 The final worker file is saved to `build/index.js`, which can be deployed to your Cloudflare Worker directly.
 
@@ -63,7 +64,7 @@ Watches your `src/index.dom.js` and its imports for changes.
 
 ### `watch:ssr`
 
-Watches your `src/index.ssr.js` and its imports for changes.
+Watches your `src/index.service-worker.js` and its imports for changes.
 
 
 ## Deploy

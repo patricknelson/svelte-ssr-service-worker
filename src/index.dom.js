@@ -1,8 +1,8 @@
 import App from './App.svelte';
 
 if ('serviceWorker' in navigator) {
-	navigator.serviceWorker.register('bundle.ssr.js');
-	console.log('setup service worker at: index.ssr.js');
+	navigator.serviceWorker.register('build/bundle.service-worker.js');
+	console.log('setup service worker');
 }
 
 
