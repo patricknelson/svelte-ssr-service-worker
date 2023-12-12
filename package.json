@@ -1,15 +1,15 @@
 {
   "private": true,
   "version": "0.1.0",
-  "name": "svelte-ssr-worker",
+  "name": "svelte-swsr-worker",
   "scripts": {
     "build": "run-s build:**",
     "build:dom": "rollup -c config/dom.js",
-    "build:ssr": "rollup -c config/service-worker.js",
+    "build:service-worker": "rollup -c config/service-worker.js",
     "start": "sirv public --single --dev --port 8080",
     "watch": "run-p \"start --quiet\" watch:dom",
     "watch:dom": "run-s \"build:dom -w\"",
-    "watch:ssr": "rollup -cw config/service-worker.js"
+    "watch:service-worker": "rollup -cw config/service-worker.js"
   },
   "engines": {
     "node": ">=10"

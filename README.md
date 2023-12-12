@@ -1,16 +1,17 @@
 # svelte-swsr-worker
 
-> A quick demo for rendering Svelte _Service Worker Side_ (SWSR). Like SSR (server side rendering) but within a [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers)!
+> A quick demo for rendering Svelte via _Service Worker Side Rendering_ (SWSR). Like SSR (Server Side Rendering) but within a [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers)!
 
 This is a demo meant to illustrate how to get Svelte SSR in a Service Worker. It is _intentionally_ very minimal. It is
 a fork of [svelte-ssr-worker](https://github.com/lukeed/svelte-ssr-worker) and lightly modified for Service Workers.
+Svelte and Rollup are a bit out of date in this PoC and new projects shouldn't use this as a starting point.
 
 
 ## Install
 
 ```sh
 $ git clone https://github.com/patricknelson/svelte-swsr-worker
-$ cd svelte-ssr-worker
+$ cd svelte-swsr-worker
 $ npm install
 ```
 
@@ -21,9 +22,9 @@ They are invoked via `npm run <name>` on the command line; for example: `npm run
 
 ### `build`
 
-This is an alias for _sequentially_ running the `build:dom` and `build:ssr` scripts.
+This is an alias for _sequentially_ running the `build:dom` and `build:service-worker` scripts.
 
-> **Note:** These are sequential because `build:ssr` imports the `public/index.html` that `build:dom` produces.
+> **Note:** These are sequential because `build:service-worker` imports the `public/index.html` that `build:dom` produces.
 
 
 ### `build:dom`
@@ -32,18 +33,20 @@ Builds the client for production, using the `src/index.dom.js` entry point.
 
 All files within the `/public` directory comprise your front-end client application.
 
-> **Important:** These must be uploaded to a storage bucket and made available on a CDN location. <br>Alternatively, you may upload `/public` as a [static Workers Site](https://developers.cloudflare.com/workers/platform/sites/start-from-existing).
 
+### `build:service-worker`
 
-### `build:ssr`
-
-Builds your Cloudflare Worker code, using the `src/index.service-worker.js` entry point.
-
-The final worker file is saved to `build/index.js`, which can be deployed to your Cloudflare Worker directly.
-
-> **Note:** Deployment is not included in this template.
+Builds your Service Worker code, using the `src/index.service-worker.js` entry point.  The final worker file is saved to `public/build/bundle.service-worker.js`.
 
 > **Important:** This script _must run after_ `build:dom` because it relies on its `public/index.html` output.
+
+It's loaded via the DOM code (in `bundle.js`) via:
+
+```js
+if ('serviceWorker' in navigator) {
+	navigator.serviceWorker.register('build/bundle.service-worker.js');
+}
+```
 
 ### `start`
 
@@ -60,7 +63,7 @@ This is an alias for running the `start` and `watch:dom` scripts simultaneously.
 
 Watches your `src/index.dom.js` and its imports for changes.
 
-### `watch:ssr`
+### `watch:service-worker`
 
 Watches your `src/index.service-worker.js` and its imports for changes.
 
